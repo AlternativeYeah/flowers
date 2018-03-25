@@ -1,3 +1,16 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+# the "app_lucky_number" route name is not important yet
+shop_flowers:
+    path: /shop/flowers
+    controller: App\Controller\ShopController::flowers
+shop_order:
+    path: /shop/order/{id}
+    controller: App\Controller\ShopController::order
+    requirements:
+        id: '\d+'
+main:
+    path: /
+    controller: App\Controller\ShopController::main

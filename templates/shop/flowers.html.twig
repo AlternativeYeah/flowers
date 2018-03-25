@@ -1,0 +1,17 @@
+{# templates/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block content %}
+    {% for entry in blog_entries %}
+        <div class="cart">
+            <img src="{{ asset('img/flower.jpg') }}">
+            <div class="product">
+                <a class="title" href="{{ path('shop_order', {'id': entry.id }) }}"><p>{{ entry.title }}</p>
+                </a>                <p>{{ entry.price }}</p>
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
