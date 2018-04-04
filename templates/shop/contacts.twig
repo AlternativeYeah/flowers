@@ -1,14 +1,12 @@
 {# templates/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block pagestyle %}<link rel="stylesheet" href="{{ asset('css/order.css') }}">{% endblock %}
-
-{% block title %}Order{% endblock %}
+{% block title %}My cool blog posts{% endblock %}
 
 {% block content %}
     <div class="order">
         <img src="{{ asset('img/flower.jpg') }}">
-        <form method="post" action="{{ path('order', {'id': 1}) }}">
+        <form method="post" action="{{ path('shop_order', {'id': 1}) }}">
             <label>Имя</label><br>
             <input type="text" name="name"><br>
 

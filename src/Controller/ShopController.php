@@ -17,7 +17,7 @@ class ShopController extends Controller
     /**
      * @return Response
      */
-    public function flowers()
+    public function flowers($id)
     {
         return $this->render('shop/flowers.html.twig', array(
             'blog_entries' => [
@@ -83,10 +83,21 @@ class ShopController extends Controller
 
     public function main()
     {
-        return $this->render('main.html.twig', array(
+        return $this->render('shop/main.html.twig', array(
             'type' => [
-                'Букеты', 'Корзинки', 'SWIITBOX',
+                'Букеты',
+                'Корзинки',
+                'SWIITBOX',
             ]
+        ));
+    }
+
+    public function contacts()
+    {
+        return $this->render('shop/contacts.html.twig', array(
+            'phone'   => '+7 987 569 45 89',
+            'email'   => 'shop@flowers.ru',
+            'address' => 'г. Москва ул. Мира 43'
         ));
     }
 }

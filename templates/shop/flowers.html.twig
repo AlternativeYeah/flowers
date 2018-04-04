@@ -1,14 +1,16 @@
 {# templates/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}My cool blog posts{% endblock %}
+{% block pagestyle %}<link rel="stylesheet" href="{{ asset('css/flowers.css') }}">{% endblock %}
+
+{% block title %}Flowers{% endblock %}
 
 {% block content %}
     {% for entry in blog_entries %}
         <div class="cart">
             <img src="{{ asset('img/flower.jpg') }}">
             <div class="product">
-                <a class="title" href="{{ path('shop_order', {'id': entry.id }) }}"><p>{{ entry.title }}</p>
+                <a class="title" href="{{ path('order', {'id': entry.id }) }}"><p>{{ entry.title }}</p>
                 </a>                <p>{{ entry.price }}</p>
 
             </div>
