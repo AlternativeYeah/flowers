@@ -9,7 +9,10 @@
 namespace App\Controller;
 
 
+use App\Entity\Flowers;
+use App\Entity\Order;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends Controller
@@ -81,6 +84,11 @@ class ShopController extends Controller
         ));
     }
 
+    public function createOrder(Request $request){
+        $order = new Order();
+
+
+    }
     public function main()
     {
         return $this->render('shop/main.html.twig', array(

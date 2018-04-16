@@ -13,6 +13,11 @@ order:
     controller: App\Controller\ShopController::order
     requirements:
         id: '\d+'
+createOrder:
+    path: /shop/order/{id}
+    controller: App\Controller\ShopController::createOrder
+    requirements:
+        id: '\d+'
 contacts:
     path: /contacts
     controller: App\Controller\ShopController::contacts
