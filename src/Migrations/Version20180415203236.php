@@ -16,7 +16,7 @@ class Version20180415203236 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SEQUENCE orders_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE orders (id INT NOT NULL, clinet_name VARCHAR(255) NOT NULL, client_name VARCHAR(255) DEFAULT NULL, client_phone VARCHAR(255) NOT NULL, price INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE orders.html.twig (id INT NOT NULL, clinet_name VARCHAR(255) NOT NULL, client_name VARCHAR(255) DEFAULT NULL, client_phone VARCHAR(255) NOT NULL, price INT NOT NULL, PRIMARY KEY(id))');
     }
 
     public function down(Schema $schema)
@@ -26,6 +26,6 @@ class Version20180415203236 extends AbstractMigration
 
         $this->addSql('CREATE SCHEMA public');
         $this->addSql('DROP SEQUENCE orders_id_seq CASCADE');
-        $this->addSql('DROP TABLE orders');
+        $this->addSql('DROP TABLE orders.html.twig');
     }
 }

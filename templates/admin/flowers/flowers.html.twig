@@ -1,0 +1,52 @@
+{% extends 'admin/starter.html.twig' %}
+{% block content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Hover Data Table</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="pull-right">
+                            <a href="{{ path('admin.flowers.create') }}"> <button type="button" class="btn btn-primary btn-sm btn-flat">Новый букет</button></a>
+                        </div>
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Имя клиента</th>
+                                <th>Телефон клиента</th>
+                                <th>Цена заказа</th>
+                                <th>Букет</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for flower in flowers %}
+                            <tr>
+
+                                <td><a class="title" href="{{ path('admin.flower', {'id': flower.id }) }}">{{ flower.id }}</a></td>
+                                <td>{{ flower.name }}</td>
+                                <td>{{ flower.type }}</td>
+                                <td>{{ flower.description }}</td>
+                                <td>{{ flower.price }}</td>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
+            </div>
+            <!-- /.col -->
+
+        </div>
+        <!-- /.row -->
+
+    </section>
+
+{% endblock %}

@@ -13,11 +13,28 @@ order:
     controller: App\Controller\ShopController::order
     requirements:
         id: '\d+'
-createOrder:
-    path: /shop/order/{id}
-    controller: App\Controller\ShopController::createOrder
-    requirements:
-        id: '\d+'
 contacts:
     path: /contacts
     controller: App\Controller\ShopController::contacts
+
+admin.main:
+    path: /admin
+    controller: App\Controller\Admin\MainController::main
+
+admin.orders:
+    path: /admin/orders
+    controller: App\Controller\Admin\OrderController::orders
+
+admin.order:
+    path: /admin/order/{id}
+    controller: App\Controller\Admin\OrderController::order
+    requirements:
+        id: '\d+'
+
+admin.flowers:
+    path: /admin/flowers
+    controller: App\Controller\Admin\FlowerController::flowers
+
+admin.flowers.create:
+    path: /admin/flower
+    controller: App\Controller\Admin\FlowerController::flower

@@ -8,13 +8,8 @@
 {% block content %}
     <div class="order">
         <img src="{{ asset('img/flower.jpg') }}">
-        <form method="post" action="{{ path('order', {'id': 1}) }}">
-            <label>Имя</label><br>
-            <input type="text" name="name"><br>
-
-            <label>Телефон</label><br>
-            <input type="text" name="phone"><br>
-            <button>Сделать заказ</button>
-        </form>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Table(name="orders")
  */
 class Order
 {
@@ -15,11 +16,6 @@ class Order
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $clinetName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -39,18 +35,6 @@ class Order
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getClinetName(): ?string
-    {
-        return $this->clinetName;
-    }
-
-    public function setClinetName(string $clinetName): self
-    {
-        $this->clinetName = $clinetName;
-
-        return $this;
     }
 
     public function getClientName(): ?string
