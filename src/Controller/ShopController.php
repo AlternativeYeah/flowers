@@ -42,11 +42,11 @@ class ShopController extends Controller
 
         $form->handleRequest($request);
 
+        $em = $this->getDoctrine()->getManager();
+        $flower = $em->getRepository('App:Flowers')->find($id);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $order = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $flower = $em->getRepository('App:Flowers')->find($id);
-
             $order->setPrice(100);
             $order->setFlower($flower);
             $entityManager = $this->getDoctrine()->getManager();
@@ -55,7 +55,7 @@ class ShopController extends Controller
             return $this->redirectToRoute('main');
         }
 
-        return $this->render('shop/order.html.twig', ['form' => $form->createView()]);
+        return $this->render('shop/order.html.twig', ['form' => $form->createView(), 'img' => $flower->getImg()]);
     }
 
     public function main()

@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="order">
-        <img src="{{ asset('img/flower.jpg') }}">
+        <img src="{{ asset('uploads/img/flower/' ~ img) }}">
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
