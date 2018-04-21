@@ -33,8 +33,7 @@ class Flowers
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FlowerType", inversedBy="flowers")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\FlowerType")
      */
     private $type;
 

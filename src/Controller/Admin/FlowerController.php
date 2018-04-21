@@ -91,6 +91,17 @@ class FlowerController extends Controller
             return $this->redirectToRoute('admin.flowers');
         }
 
-        return $this->render('admin/flower/edit.html.twig', ['form' => $form->createView(), 'img' => $flowers->getImg()]);
+        return $this->render('admin/flower/edit.html.twig',
+            ['form' => $form->createView(), 'img' => $flowers->getImg()]);
+    }
+
+    public function delete(Request $request, Flowers $entity)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirectToRoute('admin.flowers');
+
     }
 }

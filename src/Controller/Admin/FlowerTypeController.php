@@ -73,4 +73,13 @@ class FlowerTypeController extends Controller
 
         return $this->render('admin/flower_type/edit.html.twig', ['form' => $form->createView()]);
     }
+    public function delete(Request $request, FlowerType $entity)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirectToRoute('admin.flowers');
+
+    }
 }

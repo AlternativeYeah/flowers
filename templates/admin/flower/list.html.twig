@@ -31,6 +31,7 @@
                                 <td>{{ flower.description }}</td>
                                 <td>{{ flower.type.name }}</td>
                                 <td>{{ flower.price }}</td>
+                                <td><a class="title" href="{{ path('admin.flowers.delete', {'id': flower.id }) }}">Удалить</a></td>
                                 {% endfor %}
                             </tbody>
                         </table>

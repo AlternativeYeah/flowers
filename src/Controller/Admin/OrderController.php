@@ -89,4 +89,14 @@ class OrderController extends Controller
 
         return $this->render('admin/order/create.html.twig', ['form' => $form->createView()]);
     }
+
+    public function delete(Order $entity)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($entity);
+        $em->flush();
+
+        return $this->redirectToRoute('admin.orders');
+
+    }
 }

@@ -33,6 +33,12 @@ admin.order.edit:
     requirements:
         id: '\d+'
 
+admin.order.delete:
+    path: /admin/order/delete/{id}
+    controller: App\Controller\Admin\OrderController::delete
+    requirements:
+        id: '\d+'
+
 admin.flowers:
     path: /admin/flowers
     controller: App\Controller\Admin\FlowerController::list
@@ -44,6 +50,12 @@ admin.flowers.create:
 admin.flowers.edit:
     path: /admin/flower/{id}
     controller: App\Controller\Admin\FlowerController::edit
+    requirements:
+        id: '\d+'
+
+admin.flowers.delete:
+    path: /admin/flower/delete/{id}
+    controller: App\Controller\Admin\FlowerController::delete
     requirements:
         id: '\d+'
 
@@ -60,5 +72,10 @@ admin.flowers_type.edit:
     controller: App\Controller\Admin\FlowerTypeController::edit
     requirements:
         id: '\d+'
-logout:
-    path: /logout
+
+admin.flowers_type.delete:
+    path: /admin/flower_type/delete/{id}
+    controller: App\Controller\Admin\FlowerTypeController::delete
+    requirements:
+        id: '\d+'
+
