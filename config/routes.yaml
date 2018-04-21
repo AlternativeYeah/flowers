@@ -60,3 +60,5 @@ admin.flowers_type.edit:
     controller: App\Controller\Admin\FlowerTypeController::edit
     requirements:
         id: '\d+'
+logout:
+    path: /logout
