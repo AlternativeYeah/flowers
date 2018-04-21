@@ -8,9 +8,9 @@
 {% block content %}
     {% for flower in type %}
         <div class="cart">
-            <img src="{{ asset('img/flower.jpg') }}">
+            <img src="{{ asset('uploads/img/flower/' ~ flower.img) }}">
             <div class="product">
-                <a class="title" href="{{ path('flowers', {'id': 1 }) }}"><p>{{ flower }}</p>
+                <a class="title" href="{{ path('flowers', {'id': flower.id }) }}"><p>{{ flower.name }}</p>
                 </a>
 
             </div>

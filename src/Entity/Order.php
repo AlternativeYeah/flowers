@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Order
 {
+    const STATUS_NEW = 'new';
+    const STATUS_WORK = 'work';
+    const STATUS_DONE = 'done';
+    const STATUS_CANCEL = 'cancel';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -31,6 +36,49 @@ class Order
      * @ORM\Column(type="integer")
      */
     private $price;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $status = self::STATUS_NEW;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Flowers", inversedBy="orders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $flower;
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlower()
+    {
+        return $this->flower;
+    }
+
+    /**
+     * @param mixed $flower
+     */
+    public function setFlower($flower)
+    {
+        $this->flower = $flower;
+    }
 
     public function getId()
     {

@@ -5,32 +5,33 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Hover Data Table</h3>
+                        <h3 class="box-title">Типы товаров</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <div class="pull-right">
+                            <a href="{{ path('admin.flowers_type.create') }}"> <button type="button" class="btn btn-primary btn-sm btn-flat">Новый букет</button></a>
+                        </div>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th>Имя клиента</th>
-                                <th>Телефон клиента</th>
-                                <th>Цена заказа</th>
-                                <th>Букет</th>
+                                <th>Название</th>
+                                <th>Описание</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for order in orders %}
+                            {% for flower in flowersType %}
                             <tr>
 
-                                <td><a class="title" href="{{ path('admin.order', {'id': order.id }) }}">{{ order.id }}</a></td>
-                                <td>{{ order.clientName }}</td>
-                                <td>{{ order.clientPhone }}</td>
-                                <td>{{ order.price }}</td>
-                                <td>{{ order.id }}</td>
+                                <td><a class="title" href="{{ path('admin.flowers_type.edit', {'id': flower.id }) }}">{{ flower.id }}</a></td>
+                                <td>{{ flower.name }}</td>
+                                <td>{{ flower.description }}</td>
                                 {% endfor %}
                             </tbody>
                         </table>
+
+
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -38,7 +39,10 @@
 
             </div>
             <!-- /.col -->
+
         </div>
         <!-- /.row -->
+
     </section>
+
 {% endblock %}

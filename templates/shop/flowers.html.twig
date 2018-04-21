@@ -6,12 +6,12 @@
 {% block title %}Flowers{% endblock %}
 
 {% block content %}
-    {% for entry in blog_entries %}
+    {% for flower in flowers %}
         <div class="cart">
-            <img src="{{ asset('img/flower.jpg') }}">
+            <img src="{{ asset('uploads/img/flower/' ~ flower.img) }}">
             <div class="product">
-                <a class="title" href="{{ path('order', {'id': entry.id }) }}"><p>{{ entry.title }}</p>
-                </a>                <p>{{ entry.price }}</p>
+                <a class="title" href="{{ path('order', {'id': flower.id }) }}"><p>{{ flower.name }}</p>
+                </a>                <p>{{ flower.price }}</p>
 
             </div>
         </div>

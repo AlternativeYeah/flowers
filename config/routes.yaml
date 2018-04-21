@@ -6,8 +6,6 @@ flowers:
     controller: App\Controller\ShopController::flowers
     requirements:
         id: '\d+'
-    defaults:
-        id: 1
 order:
     path: /shop/order/{id}
     controller: App\Controller\ShopController::order
@@ -23,18 +21,42 @@ admin.main:
 
 admin.orders:
     path: /admin/orders
-    controller: App\Controller\Admin\OrderController::orders
+    controller: App\Controller\Admin\OrderController::list
 
-admin.order:
+admin.order.create:
+    path: /admin/order/
+    controller: App\Controller\Admin\OrderController::create
+
+admin.order.edit:
     path: /admin/order/{id}
-    controller: App\Controller\Admin\OrderController::order
+    controller: App\Controller\Admin\OrderController::edit
     requirements:
         id: '\d+'
 
 admin.flowers:
     path: /admin/flowers
-    controller: App\Controller\Admin\FlowerController::flowers
+    controller: App\Controller\Admin\FlowerController::list
 
 admin.flowers.create:
     path: /admin/flower
-    controller: App\Controller\Admin\FlowerController::flower
+    controller: App\Controller\Admin\FlowerController::create
+
+admin.flowers.edit:
+    path: /admin/flower/{id}
+    controller: App\Controller\Admin\FlowerController::edit
+    requirements:
+        id: '\d+'
+
+admin.flowers_type:
+    path: /admin/flowers_types
+    controller: App\Controller\Admin\FlowerTypeController::list
+
+admin.flowers_type.create:
+    path: /admin/flowers_type
+    controller: App\Controller\Admin\FlowerTypeController::create
+
+admin.flowers_type.edit:
+    path: /admin/flower_type/{id}
+    controller: App\Controller\Admin\FlowerTypeController::edit
+    requirements:
+        id: '\d+'

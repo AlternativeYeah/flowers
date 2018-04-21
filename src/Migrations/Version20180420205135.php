@@ -8,15 +8,17 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180415203236 extends AbstractMigration
+class Version20180420205135 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('CREATE SEQUENCE orders_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE list.html.twig (id INT NOT NULL, clinet_name VARCHAR(255) NOT NULL, client_name VARCHAR(255) DEFAULT NULL, client_phone VARCHAR(255) NOT NULL, price INT NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('ALTER TABLE flowers ADD type_id INT NOT NULL');
+        $this->addSql('ALTER TABLE flowers DROP type');
+        $this->addSql('ALTER TABLE flowers ADD CONSTRAINT FK_7DAF2300C54C8C93 FOREIGN KEY (type_id) REFERENCES flower_type (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('CREATE INDEX IDX_7DAF2300C54C8C93 ON flowers (type_id)');
     }
 
     public function down(Schema $schema)
@@ -25,7 +27,9 @@ class Version20180415203236 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE orders_id_seq CASCADE');
-        $this->addSql('DROP TABLE list.html.twig');
+        $this->addSql('ALTER TABLE flowers DROP CONSTRAINT FK_7DAF2300C54C8C93');
+        $this->addSql('DROP INDEX IDX_7DAF2300C54C8C93');
+        $this->addSql('ALTER TABLE flowers ADD type VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE flowers DROP type_id');
     }
 }

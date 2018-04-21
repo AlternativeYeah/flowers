@@ -5,31 +5,31 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Hover Data Table</h3>
+                        <h3 class="box-title">Список товаров</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="pull-right">
-                            <a href="{{ path('admin.flowers.create') }}"> <button type="button" class="btn btn-primary btn-sm btn-flat">Новый букет</button></a>
+                            <a href="{{ path('admin.flowers.create') }}"> <button type="button" class="btn btn-primary btn-sm btn-flat">Новый товар</button></a>
                         </div>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th>Имя клиента</th>
-                                <th>Телефон клиента</th>
-                                <th>Цена заказа</th>
-                                <th>Букет</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                                <th>Тип</th>
+                                <th>Цена</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for flower in flowers %}
                             <tr>
 
-                                <td><a class="title" href="{{ path('admin.flower', {'id': flower.id }) }}">{{ flower.id }}</a></td>
+                                <td><a class="title" href="{{ path('admin.flowers.edit', {'id': flower.id }) }}">{{ flower.id }}</a></td>
                                 <td>{{ flower.name }}</td>
-                                <td>{{ flower.type }}</td>
                                 <td>{{ flower.description }}</td>
+                                <td>{{ flower.type.name }}</td>
                                 <td>{{ flower.price }}</td>
                                 {% endfor %}
                             </tbody>

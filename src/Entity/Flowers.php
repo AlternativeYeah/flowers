@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FlowersRepository")
@@ -22,11 +23,6 @@ class Flowers
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
@@ -35,6 +31,43 @@ class Flowers
      * @ORM\Column(type="integer")
      */
     private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\FlowerType", inversedBy="flowers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $img;
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+    public function getType(): ?FlowerType
+    {
+        return $this->type;
+    }
+
+    public function setType(?FlowerType $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 
     public function getId()
     {
@@ -49,18 +82,6 @@ class Flowers
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }
