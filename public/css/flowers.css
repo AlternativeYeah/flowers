@@ -1,15 +1,11 @@
 .cart{
-    width: 300px;
+    width: 200px;
     float: left;
     margin-left: 25px;
     margin-right: 25px;
 }
 .cart h1{
     text-align: center;
-}
-
-.cart img{
-    width: 100%
 }
 
 .product{

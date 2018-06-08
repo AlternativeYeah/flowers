@@ -1,18 +1,23 @@
 {# templates/blog/index.html.twig #}
 {% extends 'base.html.twig' %}
+{% block pagestyle %}<link rel="stylesheet" href="{{ asset('css/contacts.css') }}">{% endblock %}
 
 {% block title %}My cool blog posts{% endblock %}
 
 {% block content %}
-    <div class="order">
-        <img src="{{ asset('img/flower.jpg') }}">
-        <form method="post" action="{{ path('shop_order', {'id': 1}) }}">
-            <label>Имя</label><br>
-            <input type="text" name="name"><br>
+    <div class="contacts">
 
-            <label>Телефон</label><br>
-            <input type="text" name="phone"><br>
-            <button>Сделать заказ</button>
-        </form>
+        <div class="phone">
+            <img src="{{ asset('img/phone.png') }}">
+            <p>89876543212</p>
+        </div>
+        <div class="email">
+            <img src="{{ asset('img/email.png') }}">
+            <p>support@royalbuketflowers.ru</p>
+        </div>
+    </div>
+
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.0865975665!2d55.948994115890905!3d54.725691580291226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d93a44cda59b69%3A0x22e76b606535c814!2z0JrQvtC80LzRg9C90LjRgdGC0LjRh9C10YHQutCw0Y8g0YPQuy4sIDY1LCDQo9GE0LAsINCg0LXRgdC_LiDQkdCw0YjQutC-0YDRgtC-0YHRgtCw0L0sIDQ1MDA3Nw!5e0!3m2!1sru!2sru!4v1528475196389" width="1050" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 {% endblock %}

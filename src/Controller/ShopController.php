@@ -71,7 +71,7 @@ class ShopController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $flowerType = $em->getRepository('App:FlowerType')->findAll();
-        return $this->render('shop/main.html.twig', array(
+        return $this->render('shop/contacts.twig', array(
             'blog_entries' => $flowerType
         ));
     }
