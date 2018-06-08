@@ -13,8 +13,6 @@
     width: 200px
 }
 
-.product{
-    margin: 0 auto;
-    width: 50px;
-    height: 75px;
+.product p{
+    text-align: center;
 }
