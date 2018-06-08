@@ -49,6 +49,11 @@ class Order
     private $flower;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $quantity;
+
+    /**
      * @return mixed
      */
     public function getStatus()
@@ -119,5 +124,15 @@ class Order
         $this->price = $price;
 
         return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity)
+    {
+        $this->quantity = $quantity;
     }
 }
