@@ -19,6 +19,20 @@ class FlowerTypeRepository extends ServiceEntityRepository
         parent::__construct($registry, FlowerType::class);
     }
 
+    public function findFlowers(){
+        $qb = $this->createQueryBuilder('f');
+        $qb->andWhere('f.id != :toys')
+            ->setParameter('toys', 10);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findToys(){
+        $qb = $this->createQueryBuilder('f');
+        $qb->andWhere('f.id = :toys')
+            ->setParameter('toys', 10);
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return FlowerType[] Returns an array of FlowerType objects
 //     */

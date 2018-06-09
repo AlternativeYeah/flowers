@@ -63,9 +63,21 @@ class ShopController extends Controller
     public function main()
     {
         $em = $this->getDoctrine()->getManager();
-        $flowerType = $em->getRepository('App:FlowerType')->findAll();
+        $flowerType = $em->getRepository('App:FlowerType')->findFlowers();
         return $this->render('shop/main.html.twig', array(
             'type' => $flowerType
+        ));
+    }
+
+    /**
+     * @return Response
+     */
+    public function toys()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $flowers = $em->getRepository('App:Flowers')->findBy(['type' => 10]);
+        return $this->render('shop/toys.html.twig', array(
+            'flowers' => $flowers
         ));
     }
 

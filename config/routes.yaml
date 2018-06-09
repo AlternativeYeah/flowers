@@ -6,6 +6,9 @@ flowers:
     controller: App\Controller\ShopController::flowers
     requirements:
         id: '\d+'
+toys:
+    path: /shop/toys/
+    controller: App\Controller\ShopController::toys
 order:
     path: /shop/order/{id}
     controller: App\Controller\ShopController::order
