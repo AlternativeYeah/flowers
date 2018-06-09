@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\Order;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,6 +38,7 @@ class ShopController extends Controller
         $form = $this->createFormBuilder($order)
             ->add('clientName', TextType::class, ['label' => 'Имя'])
             ->add('clientPhone', TextType::class, ['label' => 'Телефон'])
+            ->add('quantity', NumberType::class, ['label' => 'Количество'])
             ->add('save', SubmitType::class, array('label' => 'Оставить заявку'))
             ->getForm();
 
