@@ -41,6 +41,7 @@ class OrderController extends Controller
                 'label' => 'Цветок'
             ])
             ->add('price', MoneyType::class, ['label' => 'Цена'])
+            ->add('comment', TextType::class, ['label' => 'Коомментарий'])
             ->add('save', SubmitType::class, array('label' => 'Сохранить'))
             ->getForm();
 
@@ -74,6 +75,7 @@ class OrderController extends Controller
                 'Выополнен' => Order::STATUS_DONE,
                 'Отмена' => Order::STATUS_CANCEL,
             ]])
+            ->add('comment', TextType::class, ['label' => 'Коомментарий'])
             ->add('save', SubmitType::class, array('label' => 'Сохранить'))
             ->getForm();
 
