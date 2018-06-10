@@ -54,6 +54,11 @@ class Order
     private $quantity;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $comment;
+
+    /**
      * @return mixed
      */
     public function getStatus()
@@ -134,5 +139,15 @@ class Order
     public function setQuantity(int $quantity)
     {
         $this->quantity = $quantity;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment)
+    {
+        $this->comment = $comment;
     }
 }

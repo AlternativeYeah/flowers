@@ -39,6 +39,7 @@ class ShopController extends Controller
             ->add('clientName', TextType::class, ['label' => 'Имя'])
             ->add('clientPhone', TextType::class, ['label' => 'Телефон'])
             ->add('quantity', NumberType::class, ['label' => 'Количество'])
+            ->add('comment', TextType::class, ['label' => 'Комментарий'])
             ->add('save', SubmitType::class, array('label' => 'Оставить заявку'))
             ->getForm();
 
@@ -75,7 +76,7 @@ class ShopController extends Controller
     public function toys()
     {
         $em = $this->getDoctrine()->getManager();
-        $flowers = $em->getRepository('App:Flowers')->findBy(['type' => 10]);
+        $flowers = $em->getRepository('App:Flowers')->findBy(['type' => 9]);
         return $this->render('shop/toys.html.twig', array(
             'flowers' => $flowers
         ));

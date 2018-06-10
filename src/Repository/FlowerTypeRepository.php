@@ -22,7 +22,7 @@ class FlowerTypeRepository extends ServiceEntityRepository
     public function findFlowers(){
         $qb = $this->createQueryBuilder('f');
         $qb->andWhere('f.id != :toys')
-            ->setParameter('toys', 10);
+            ->setParameter('toys', 9);
         return $qb->getQuery()->getResult();
     }
 

@@ -21,6 +21,7 @@
                                 <th>Цена товара</th>
                                 <th>Количество</th>
                                 <th>Товар</th>
+                                <th>Комментарий</th>
                                 <th>Статус заказа</th>
                                 <th>Удалить заказ</th>
                             </tr>
@@ -35,6 +36,7 @@
                                 <td>{{ order.price }}</td>
                                 <td>{{ order.quantity }}</td>
                                 <td>{{ order.flower.name }}</td>
+                                <td>{{ order.comment }}</td>
                                 <td>{{ order.status }}</td>
                                 <td><a class="title" href="{{ path('admin.order.delete', {'id': order.id }) }}">Удалить</a></td>
                                 {% endfor %}
