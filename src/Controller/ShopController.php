@@ -51,7 +51,7 @@ class ShopController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Order $order */
             $order = $form->getData();
-            $order->setPrice(100);
+            $order->setPrice($flower->getPrice() * $order->getQuantity());
             $order->setFlower($flower);
             $order->setDateCreated(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
