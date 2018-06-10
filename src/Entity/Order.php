@@ -54,9 +54,14 @@ class Order
     private $quantity;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $comment;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateCreated;
 
     /**
      * @return mixed
@@ -149,5 +154,15 @@ class Order
     public function setComment(string $comment)
     {
         $this->comment = $comment;
+    }
+
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
     }
 }

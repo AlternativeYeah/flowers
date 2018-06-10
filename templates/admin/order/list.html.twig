@@ -16,6 +16,7 @@
                             <thead>
                             <tr>
                                 <th>№</th>
+                                <th>Дата создания</th>
                                 <th>Имя клиента</th>
                                 <th>Телефон клиента</th>
                                 <th>Цена товара</th>
@@ -31,6 +32,7 @@
                             <tr>
 
                                 <td><a class="title" href="{{ path('admin.order.edit', {'id': order.id }) }}">{{ order.id }}</a></td>
+                                <td>{{ order.dateCreated.format('Y-m-d H:i:s') }}</td>
                                 <td>{{ order.clientName }}</td>
                                 <td>{{ order.clientPhone }}</td>
                                 <td>{{ order.price }}</td>

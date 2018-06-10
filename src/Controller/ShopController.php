@@ -49,9 +49,11 @@ class ShopController extends Controller
         $flower = $em->getRepository('App:Flowers')->find($id);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Order $order */
             $order = $form->getData();
             $order->setPrice(100);
             $order->setFlower($flower);
+            $order->setDateCreated(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
